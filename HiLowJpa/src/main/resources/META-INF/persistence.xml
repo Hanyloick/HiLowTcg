@@ -19,7 +19,12 @@
 	<!-- Instructing hibernate to use MySQL syntax and connection settings -->
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
       <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" />
-	<!--  -->
+	<!-- max connections = 5, 
+	min connections = 0, 
+	if another connection is needed acquire new connections in increments of +1,
+	after a count of 300 hibernate will send a test query to see if the connection is still active,
+	hibernate will cache "0" prepared statements,
+	if a connection cannot be acquired within a count of "60" seconds an exception will be thrown  -->
       <property name="hibernate.c3p0.max_size" value="5" />
       <property name="hibernate.c3p0.min_size" value="0" />
       <property name="hibernate.c3p0.acquire_increment" value="1" />
