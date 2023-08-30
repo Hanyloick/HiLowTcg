@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(3000) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `role` VARCHAR(45) NOT NULL,
+  `enabled` TINYINT NOT NULL,
   PRIMARY KEY (`id`));
 
 SET SQL_MODE = '';
@@ -46,7 +48,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `tcgdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`) VALUES (1, 'test', 'test@test.com', '$2a$10$nShOi5/f0bKNvHB8x0u3qOpeivazbuN0NE4TO0LGvQiTMafaBxLJS', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `role`, `enabled`) VALUES (1, 'test', 'test@test.com', '$2a$10$nShOi5/f0bKNvHB8x0u3qOpeivazbuN0NE4TO0LGvQiTMafaBxLJS', NULL, 'Admin', 1);
 
 COMMIT;
 
