@@ -19,7 +19,7 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
-	@Column(name = "create_time")
+	@Column(name = "created_at")
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 
